@@ -1,23 +1,40 @@
-import React, { Fragment } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import {Switch, Route} from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Navbar from './components/Navbar'
 import Homepage from './pages/Homepage'
+import ListsPage from './pages/ListsPage'
+import { fetchLists } from './redux/actions'
 
 
-function App() {
-  return (
-    <div className='background' >
-      <Navbar />
-      <Switch>
-          <Route exact path="/" component={Homepage} />
-      </Switch>
+class App extends Component {
+    
+    componentDidMount () {
+      this.props.fetchLists()
+    }
 
-    </div>
+    render() {
+      return (
+      <div className='background' >
+        <Navbar />
+        <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path='/lists' component={ListsPage} />
+        </Switch>
 
-    )
+      </div>
+
+      )
+  }
 
 }
 
-export default App;
+
+function mapDispatchToProps(dispatch) {
+  return { fetchLists: () => dispatch(fetchLists())}
+}
+
+
+export default connect(null, mapDispatchToProps)(App);

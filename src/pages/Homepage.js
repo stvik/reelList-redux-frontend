@@ -6,10 +6,10 @@ const Homepage = ()  => {
 	return (
 
 		<Grid container direction='row' justify='center' alignItems='flex-end' >
-			<Grid container direction='row' justify='center' alignItems='flex-end' xs={12}>
-				<Typography variant='h1' className='HomeHeader' style={{fontSize: '200px'}}> ReelList </Typography>
+			<Grid container direction='row' justify='left' alignItems='flex-end' xs={12}>
+				<Typography variant='h1' className='HomeHeader' style={{fontSize: '200px', fontWeight: '300'}}> ReelList </Typography>
 			</Grid>
-			<Grid container direction='row' justify='center' alignItems='flex-end' xs={12}>
+			<Grid container direction='row' justify='left' alignItems='flex-end' xs={12}>
 				<Button variant='contained' color='primary'>Search Movies</Button>
 				<Button variant='contained' color='secondary'>View Lists</Button>
 			</Grid>
