@@ -7,6 +7,30 @@
   pointer-events: none;
 }
 
+.NavbarFont {
+  font-size: 20px;
+  padding: 50px;
+}
+
+.HomeHeader {
+  padding-top: 200px;
+}
+
+.background {
+    background-image: url('https://bestwallpapers.net/wp-content/uploads/2019/12/bestwallpapers6-2000x1250.jpg');
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    min-height: 102vh;
+    margin: 0;
+    background-color:#b3b3b3;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:  fixed;
+    position: relative;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
