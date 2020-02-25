@@ -3,7 +3,18 @@ import { Link, Card, Button, CardActionArea, CardContent, CardActions, CardMedia
 
 
 const ListCard = (props) => {
-	console.log(props)
+
+  const pickImage = () => {
+    if (props.list.movies && props.list.movies[0].picture) {
+      return props.list.movies[0].picture
+    } else {
+      
+    }
+
+
+  }
+
+
 	return (
 	<Card >
       <CardActionArea>

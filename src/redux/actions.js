@@ -6,3 +6,9 @@ export function fetchLists() {
 		.then(lists => dispatch({type: 'GET_LISTS', lists}))
 	}
 }
+
+export function searchMovie(searchString) {
+	return (dispatch) => {
+		fetch(`http://localhost:3000/movies?name=${searchString}`)
+	}
+}

@@ -4,15 +4,15 @@ import { connect } from 'react-redux'
 import ListCard from '../components/ListCard'
 
 const ListsPage = (props) => {
-	console.log(props)
+
 	return (
 		<>
 			<div>
-				<Typography variant='h1' gutterButtom>
+				<Typography variant='h1' gutterBottom className='PageHeader'>
 					Movie Lists
 				</Typography>
 			</div>
-			<Grid container justify='center' spacing={5}>
+			<Grid container justify='space-around' spacing={5}>
 				{props.lists.map((list,index) => <ListCard list={list} key={index}/>)}
 			</Grid>
 		</>

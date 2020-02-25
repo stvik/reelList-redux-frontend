@@ -7,14 +7,14 @@ const Navbar = () => {
 	return (
 
 	<Grid container justify='center' spacing={1}>
-		 <Breadcrumbs aria-label="breadcrumb">
-		      <Link color="inherit"  component={RLink} to="/" className='NavbarFont'>
+		 <Breadcrumbs aria-label="breadcrumb" color='white'>
+		      <Link color="white"  component={RLink} to="/" className='NavbarFont'>
 		       		Home
 		      </Link>
-		      <Link color="inherit" component={RLink} to="/movies" className='NavbarFont'>
+		      <Link color="white" component={RLink} to="/movies" className='NavbarFont'>
 		       		Movies
 		      </Link>
-		      <Link color="inherit" component={RLink} to="/lists" className='NavbarFont'>
+		      <Link color="white" component={RLink} to="/lists" className='NavbarFont'>
 		        	Lists
 		      </Link>
 	    </Breadcrumbs>
