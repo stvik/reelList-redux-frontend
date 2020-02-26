@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Homepage from './pages/Homepage'
 import ListsPage from './pages/ListsPage'
 import SearchPage from './pages/SearchPage'
+import ListPage from './pages/ListPage'
 import { fetchLists } from './redux/actions'
 
 
@@ -24,6 +25,7 @@ class App extends Component {
             <Route exact path="/" component={Homepage} />
             <Route exact path='/lists' component={ListsPage} />
             <Route exact path='/movies' component={SearchPage} />
+            <Route exact path='/lists/:listId' component={ListPage} />
         </Switch>
 
       </div>

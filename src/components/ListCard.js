@@ -1,23 +1,27 @@
 import React from 'react'
 import { Link, Card, Button, CardActionArea, CardContent, CardActions, CardMedia, Typography } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 
 const ListCard = (props) => {
 
+  let history = useHistory()
+
   const pickImage = () => {
-    if (props.list.movies && props.list.movies[0].picture) {
+    if (props.list.movies){
       return props.list.movies[0].picture
-    } else {
-      
     }
-
-
   }
 
+  const handleClick = () => {
+   history.push(`/lists/${props.list.id}`)
+  }
 
+  console.log(props)
 	return (
+
 	<Card >
-      <CardActionArea>
+      <CardActionArea onClick={handleClick}>
         <CardMedia
           image={props.list.movies[0].picture}
           title="Contemplative Reptile"

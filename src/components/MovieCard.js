@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import { Link, Card, Button, CardActionArea, CardContent, CardActions, CardMedia, Typography, Modal, Fade, Backdrop, Paper } from '@material-ui/core'
+import Rating from '@material-ui/lab/Rating'
 import MovieModal from './MovieModal'
+
 
 const MovieCard = (props) => {
 
@@ -27,32 +29,25 @@ const MovieCard = (props) => {
 
 	return (
     <>
-    	<Card onClick={handleOpen}>
+    	<Card onClick={handleOpen} className='movieCard'>
           <CardActionArea>
             <CardMedia
               image={pickImage()}
               title="Movie Image"
               component="img"
-              height='300'
-              width='150'
+              className='movieImage'
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2" display='block'>
                 {props.movie.title}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-              	This is a movie
+              <Rating name='half-rating-read' value={props.movie.rating/2} precision={0.1} readOnly size='small' /> 
+              <Typography variant="body2" noWrap color="textSecondary" component="p">
+              	{props.movie.description}
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              Share
-            </Button>
-            <Button size="small" color="primary">
-              Learn More
-            </Button>
-          </CardActions>
+     
         </Card>
         <Modal
           aria-labelledby="transition-modal-title"
