@@ -10,8 +10,18 @@ function listsReducer(state=[], action) {
 	}
 }
 
+function moviesReducer(state=[], action) {
+	switch (action.type) {
+		case 'SEARCH_MOVIES':
+			return action.movies
+		default:
+			return state
+	}
+}
+
 const rootReducer = combineReducers({
   lists: listsReducer,
+  movies: moviesReducer
 })
 
 export default rootReducer

@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react'
 import { Grid, Typography } from '@material-ui/core'
-import { connect } from 'react-redux'
 import SearchBar from '../components/SearchBar'
+import MoviesContainer from '../containers/MoviesContainer'
 
 
 
 const SearchPage = (props) => {
-
 	return (
 		<>
 			<div>
@@ -17,13 +16,12 @@ const SearchPage = (props) => {
 			<Grid container justify='space-around' className='searchPageContainer'>
 				<SearchBar />
 			</Grid>
+			<MoviesContainer />
 		</>
 		)
 
 }
 
-const mapStateToProps = (state) => {
-  return {lists: state.lists}
-}
 
-export default connect(mapStateToProps)(SearchPage)
+
+export default SearchPage

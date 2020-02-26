@@ -9,6 +9,8 @@ export function fetchLists() {
 
 export function searchMovie(searchString) {
 	return (dispatch) => {
-		fetch(`http://localhost:3000/movies?name=${searchString}`)
+		fetch(`http://localhost:3000/movies?search=${searchString}`)
+		.then(resp => resp.json())
+		.then(movies => dispatch({type: 'SEARCH_MOVIES', movies}))
 	}
 }
