@@ -5,6 +5,8 @@ function listsReducer(state=[], action) {
 	switch (action.type) {
 		case 'GET_LISTS':
 			return action.lists
+		case 'ADD_LIST': 
+			return [...state, action.list]
 		default :
 			return state
 	}

@@ -34,3 +34,11 @@ export function getRandomMovie() {
 		.then(movie => dispatch({type: 'RANDOM_MOVIE', movie}))
 	}
 }
+
+export function createList(configObj) {
+	return(dispatch) => {
+		fetch(`http://localhost:3000/lists`, configObj)
+		.then(resp => resp.json())
+		.then(list => dispatch({type: 'ADD_LIST', list}))
+	}
+}

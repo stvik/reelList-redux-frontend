@@ -55,8 +55,8 @@
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  width: 50vw;
-  height: 80vh;
+  max-width: 50vw;
+  max-height: 80vh;
   background-color: #000 !important;
   padding-top: 4vh;
   padding-right: 2vw;

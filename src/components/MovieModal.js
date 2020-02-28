@@ -13,7 +13,11 @@ const MovieModal = (props) => {
           <Grid item xs={5} >
             <img src={props.movie.picture} className='modalImage' />
             <br />
+            {props.movie.adds ?
             <Button variant='contained' color='primary'>Add to List</Button>
+            :
+            null
+            }
           </Grid>
             <Grid item xs={7} >
               <div>
