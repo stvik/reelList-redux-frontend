@@ -12,10 +12,10 @@ function listsReducer(state=[], action) {
 
 function moviesReducer(state=[], action) {
 	switch (action.type) {
-		case 'SEARCH_MOVIES':
-			return action.movies
 		case 'SHOW_MOVIES':
 			return action.movies
+		case 'RANDOM_MOVIE':
+			return [action.movie]
 		case 'CLEAR_MOVIES':
 			return []
 		default:

@@ -1,8 +1,8 @@
 import React, { Fragment,  useState } from 'react'
-import { Grid, Typography, FormControl, InputLabel, OutlinedInput } from '@material-ui/core'
+import { Grid, Typography, FormControl, InputLabel, OutlinedInput, Button } from '@material-ui/core'
 import { withStyles } from "@material-ui/core/styles"
 import { connect } from 'react-redux'
-import { searchMovie } from '../redux/actions'
+import { searchMovie, getRandomMovie } from '../redux/actions'
 
 
 
@@ -20,6 +20,10 @@ const SearchBar = (props) => {
 		}
 	}
 
+	const handleClick = () => {
+		props.getRandomMovie()
+	}
+
 	return (
 		<>
 		 <FormControl fullWidth variant="outlined" color='secondary'>
@@ -32,6 +36,8 @@ const SearchBar = (props) => {
 	            placeholder='Search movies by name...'
 	            style={{color: 'white'}}
 	          />
+   		 <p>OR</p>
+   		 <Button variant='contained' color='primary' onClick={handleClick}>Random Movie</Button>
    		 </FormControl>
 		</>
 	)
@@ -40,7 +46,9 @@ const SearchBar = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { searchMovie: (searchValue) => dispatch(searchMovie(searchValue)) }
+  return { searchMovie: (searchValue) => dispatch(searchMovie(searchValue)),
+  			getRandomMovie: () => dispatch(getRandomMovie()),
+  			 }
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar)
