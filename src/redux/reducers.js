@@ -16,6 +16,8 @@ function moviesReducer(state=[], action) {
 			return action.movies
 		case 'SHOW_MOVIES':
 			return action.movies
+		case 'CLEAR_MOVIES':
+			return []
 		default:
 			return state
 	}

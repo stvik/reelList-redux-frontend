@@ -21,11 +21,7 @@ const ListCard = (props) => {
 
 	<Card >
       <CardActionArea onClick={handleClick}>
-        <CardMedia
-          image={props.list.movies[0].picture}
-          title="Contemplative Reptile"
-          component="img"
-        />
+     
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.list.name}

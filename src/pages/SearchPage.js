@@ -1,11 +1,20 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import { Grid, Typography } from '@material-ui/core'
+import { connect } from 'react-redux'
+import { clearMovies } from '../redux/actions'
+
 import SearchBar from '../components/SearchBar'
 import MoviesContainer from '../containers/MoviesContainer'
 
 
 
-const SearchPage = (props) => {
+class SearchPage extends Component {
+
+	componentDidMount() {
+		this.props.clearMovies()
+	}
+
+	render() {
 	return (
 		<>
 			<div>
@@ -19,9 +28,13 @@ const SearchPage = (props) => {
 			<MoviesContainer />
 		</>
 		)
+	}
 
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return { clearMovies: () => dispatch(clearMovies()) }
+}
 
 
-export default SearchPage
+export default connect(null, mapDispatchToProps)(SearchPage)

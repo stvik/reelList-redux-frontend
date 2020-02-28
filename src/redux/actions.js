@@ -20,3 +20,9 @@ export function showMoviesFromList(movies) {
 		dispatch({type: 'SHOW_MOVIES', movies})
 	}
 }
+
+export function clearMovies() {
+	return (dispatch) => {
+		dispatch({type:'CLEAR_MOVIES'})
+	}
+}
