@@ -17,7 +17,6 @@ const ListCard = (props) => {
    history.push(`/lists/${props.list.id}`)
   }
 
-  console.log(props)
 	return (
 
 	<Card >

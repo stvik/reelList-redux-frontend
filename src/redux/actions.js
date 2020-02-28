@@ -14,3 +14,9 @@ export function searchMovie(searchString) {
 		.then(movies => dispatch({type: 'SEARCH_MOVIES', movies}))
 	}
 }
+
+export function showMoviesFromList(movies) {
+	return (dispatch) => {
+		dispatch({type: 'SHOW_MOVIES', movies})
+	}
+}

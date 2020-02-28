@@ -14,6 +14,8 @@ function moviesReducer(state=[], action) {
 	switch (action.type) {
 		case 'SEARCH_MOVIES':
 			return action.movies
+		case 'SHOW_MOVIES':
+			return action.movies
 		default:
 			return state
 	}
