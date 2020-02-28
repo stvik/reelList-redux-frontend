@@ -30,13 +30,24 @@
     max-width: 300px;
     max-height: 450px;
     height: auto;
-
   }
+
 .movieCard {
   margin-top:10px;
   margin-bottom: 10px;
   max-width: 300px !important;
   
+}
+
+.trailerBox {
+  margin-top:5vh;
+  width: 25vw;
+  height: 30vh;
+}
+.modalImage {
+    max-width: 15vw;
+    max-height: 40vh;
+    height: auto;
 }
 
 .movieModal {

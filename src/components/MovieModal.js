@@ -11,7 +11,7 @@ const MovieModal = (props) => {
         </Typography>
         <Grid container spacing={3}>
           <Grid item xs={5} >
-            <img src={props.movie.picture} className='movieImage' />
+            <img src={props.movie.picture} className='modalImage' />
             <br />
             <Button variant='contained' color='primary'>Add to List</Button>
           </Grid>
@@ -28,10 +28,11 @@ const MovieModal = (props) => {
                 
                   <iframe 
                     align='center'
-                    width="500" 
-                    height="350"
+                    allowFullScreen="allowfullscreen"
+                    frameBorder='0'
                     src={`https://www.youtube.com/embed/${props.movie.trailer}`}
-                    style={{marginTop:'5vh', }}>
+                    className='trailerBox'
+                    >
                     </iframe>
                 
                   :
