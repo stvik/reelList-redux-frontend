@@ -5,8 +5,6 @@ import { useHistory } from 'react-router-dom'
 
 const ListCard = (props) => {
 
-  
-
   let history = useHistory()
 
   const pickImage = () => {

@@ -1,9 +1,23 @@
 import React from 'react'
-import { Grid, Paper, Typography, Button} from '@material-ui/core'
+import { connect } from 'react-redux'
+import { Grid, Paper, Typography, InputLabel, FormControl, Select, Button } from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating'
 
 const MovieModal = (props) => {
   console.log(props)
+
+  const [state, setState] = React.useState({
+    list: null,
+  })
+
+  const handleChange = event => {
+    setState({
+      list: event.target.value,
+    });
+  }
+
+  console.log(state)
+
 	return (
       <Paper className='movieModal'>
         <Typography variant='h2' gutterBottom className='PageHeader'>
@@ -14,7 +28,24 @@ const MovieModal = (props) => {
             <img src={props.movie.picture} className='modalImage' />
             <br />
             {props.movie.adds ?
-            <Button variant='contained' color='primary'>Add to List</Button>
+          <FormControl variant="outlined">
+              <InputLabel htmlFor="outlined-age-native-simple">
+                  Add To List
+              </InputLabel>
+              <Select
+                native
+                value={state.list}
+                onChange={handleChange}
+                inputProps={{
+                  name: 'age',
+                  id: 'outlined-age-native-simple',
+                }}
+              >  
+              {props.lists.map(list => <option value={list.id}>{list.name}</option>)}      
+ 
+        </Select>
+        <Button variant='contained' color='primary'>Add</Button>
+      </FormControl>
             :
             null
             }
@@ -48,4 +79,8 @@ const MovieModal = (props) => {
 		)
 }
 
-export default MovieModal
+const mapStateToProps = (state) => {
+  return {lists: state.lists}
+}
+
+export default connect(mapStateToProps)(MovieModal)
