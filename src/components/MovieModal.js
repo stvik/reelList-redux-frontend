@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Grid, Paper, Typography, InputLabel, FormControl, Select, Button } from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating'
+import { createMovie } from '../redux/actions'
 
 const MovieModal = (props) => {
   console.log(props)
@@ -13,10 +14,13 @@ const MovieModal = (props) => {
   const handleChange = event => {
     setState({
       list: event.target.value,
-    });
+    })
   }
 
-  console.log(state)
+  const handleClick = event => {
+    console.log(state)
+    props.createMovie(props.movie, state.list)
+  }
 
 	return (
       <Paper className='movieModal'>
@@ -27,7 +31,8 @@ const MovieModal = (props) => {
           <Grid item xs={5} >
             <img src={props.movie.picture} className='modalImage' />
             <br />
-            {props.movie.adds ?
+            {props.movie.id ?
+              null :
           <FormControl variant="outlined">
               <InputLabel htmlFor="outlined-age-native-simple">
                   Add To List
@@ -36,18 +41,12 @@ const MovieModal = (props) => {
                 native
                 value={state.list}
                 onChange={handleChange}
-                inputProps={{
-                  name: 'age',
-                  id: 'outlined-age-native-simple',
-                }}
               >  
               {props.lists.map(list => <option value={list.id}>{list.name}</option>)}      
  
         </Select>
-        <Button variant='contained' color='primary'>Add</Button>
+        <Button variant='contained' color='primary' onClick={handleClick}>Add</Button>
       </FormControl>
-            :
-            null
             }
           </Grid>
             <Grid item xs={7} >
@@ -83,4 +82,8 @@ const mapStateToProps = (state) => {
   return {lists: state.lists}
 }
 
-export default connect(mapStateToProps)(MovieModal)
+const mapDispatchToProps = (dispatch) => {
+   return { createMovie: (movie, list) => dispatch(createMovie(movie, list))}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieModal)
