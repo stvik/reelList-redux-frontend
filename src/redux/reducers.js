@@ -5,8 +5,12 @@ function listsReducer(state=[], action) {
 	switch (action.type) {
 		case 'GET_LISTS':
 			return action.lists
-		case 'ADD_LIST': 
+		case 'ADD_LIST':
 			return [...state, action.list]
+		case 'ADD_MOVIE_TO_LIST':
+			let foundList = state.find(list => list.id === action.movie.adds[0].list_id)
+			foundList.movies = [...foundList.movies, action.movie]
+			return state
 		default :
 			return state
 	}

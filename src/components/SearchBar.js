@@ -34,7 +34,6 @@ const SearchBar = (props) => {
 	            onKeyPress={handleKeyPress}
 	            labelWidth={60}
 	            placeholder='Search movies by name...'
-	            style={{color: 'white'}}
 	          />
    		 <p>OR</p>
    		 <Button variant='contained' color='primary' onClick={handleClick}>Random Movie</Button>

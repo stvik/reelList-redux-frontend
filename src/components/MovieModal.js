@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Grid, Paper, Typography, InputLabel, FormControl, Select, Button } from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating'
-import { createMovie } from '../redux/actions'
+import { addToList } from '../redux/actions'
 
 const MovieModal = (props) => {
   console.log(props)
@@ -18,8 +18,19 @@ const MovieModal = (props) => {
   }
 
   const handleClick = event => {
-    console.log(state)
-    props.createMovie(props.movie, state.list)
+
+    const configObj =
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(props.movie)
+      }
+    fetch(`http://localhost:3000/movies`, configObj)
+    .then(resp => resp.json())
+    .then(movie => props.addToList(movie, state.list))
   }
 
 	return (
@@ -83,7 +94,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-   return { createMovie: (movie, list) => dispatch(createMovie(movie, list))}
+   return { addToList: (movie, list) => dispatch(addToList(movie, list))}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieModal)

@@ -43,7 +43,13 @@ export function createList(configObj) {
 	}
 }
 
-export function createMovie(movie, list) {
+export function addToList(movie, list) {
+	
+	const data = {
+		movie_id: movie.id,
+		list_id: list
+	}
+
 	const configObj =
 		{
 	  		method: 'POST',
@@ -51,12 +57,17 @@ export function createMovie(movie, list) {
 				'Content-Type': 'application/json',
 				Accept: 'application/json'
 			},
-			body: JSON.stringify(movie)
+			body: JSON.stringify(data)
   		}
 
+
 	return(dispatch) => {
-		fetch(`http://localhost:3000/movies`, configObj)
+		fetch(`http://localhost:3000/adds`, configObj)
 		.then(resp => resp.json())
-		.then(movie => console.log(movie))
+		.then(add => {
+			movie.adds = [...movie.adds, add]
+			console.log(add)
+			dispatch({type:'ADD_MOVIE_TO_LIST', movie})
+		})
 	}
 }
