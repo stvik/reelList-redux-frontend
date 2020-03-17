@@ -1,7 +1,10 @@
 import React, { Fragment } from 'react'
-import { Link, Card, Button, CardActionArea, CardContent, CardActions, CardMedia, Typography, Modal, Fade, Backdrop, Paper } from '@material-ui/core'
+import { Link, Card, Button, CardActionArea, CardContent, CardActions, CardMedia, Typography, Modal, Fade, Backdrop, Paper, IconButton } from '@material-ui/core'
+import FavoriteIcon from '@material-ui/icons/Favorite'
 import Rating from '@material-ui/lab/Rating'
 import MovieModal from './MovieModal'
+import { connect } from 'react-redux'
+import { removeMovie } from '../redux/actions'
 
 
 const MovieCard = (props) => {
@@ -27,11 +30,16 @@ const MovieCard = (props) => {
 
   }
 
+  const handleDelete = () => {
+    fetch(`http://localhost:3000/adds/${props.movie.adds[0].id}`, {'method': 'DELETE'})
+    props.removeMovie(props.movie)
+  }
+
 
 	return (
     <>
-    	<Card onClick={handleOpen} className='movieCard'>
-          <CardActionArea>
+    	<Card  className='movieCard'>
+          <CardActionArea onClick={handleOpen}>
             <CardMedia
               image={pickImage()}
               title="Movie Image"
@@ -48,6 +56,15 @@ const MovieCard = (props) => {
               </Typography>
             </CardContent>
           </CardActionArea>
+          { props.movie.id ?
+          <CardActions>
+            <Button size="small" color="primary" onClick={handleDelete}>
+               Remove
+             </Button>
+          </CardActions>
+          :
+          null
+        }
      
         </Card>
         <Modal
@@ -68,8 +85,14 @@ const MovieCard = (props) => {
     </>
 
 		)
-
-
 }
 
-export default MovieCard
+const mapDispatchToProps = (dispatch) => {
+  return { removeMovie: (movie) => dispatch(removeMovie(movie)) }
+}
+
+
+
+export default connect(null, mapDispatchToProps)(MovieCard)
+
+

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Grid, Typography, Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@material-ui/core'
+import { Grid, Typography, Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions} from '@material-ui/core'
 import { connect } from 'react-redux'
 import { createList } from '../redux/actions'
 import ListCard from '../components/ListCard'
@@ -44,15 +44,22 @@ const ListsPage = (props) => {
 
 	return (
 		<>
-			<Grid>
+			<Grid 
+				container
+				direction='row'
+				justify='space-between'
+				alignItems='center'
+			>
 				<Typography variant='h1' gutterBottom className='PageHeader'>
 					Movie Lists
 				</Typography>
-				<Button variant='contained' color='primary' onClick={handleClickOpen}>Create New List</Button>
-			</Grid>
+				
+					<Button variant='contained' color='primary' onClick={handleClickOpen}>Create New List</Button>
+				</Grid>
 			<Grid container justify='space-around' spacing={5}>
 				{props.lists.map((list,index) => <ListCard list={list} key={index}/>)}
 			</Grid>
+		
 
 			<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
 		        <DialogTitle id="form-dialog-title">Create a New Movie List</DialogTitle>

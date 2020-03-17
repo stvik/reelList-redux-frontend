@@ -43,13 +43,18 @@ export function createList(configObj) {
 	}
 }
 
+
+export function removeMovie(movie) {
+	return(dispatch) => {
+		dispatch({type:'REMOVE_MOVIE', movie})
+	}
+}
 export function addToList(movie, list) {
 	
 	const data = {
 		movie_id: movie.id,
 		list_id: list
 	}
-
 	const configObj =
 		{
 	  		method: 'POST',
@@ -59,15 +64,23 @@ export function addToList(movie, list) {
 			},
 			body: JSON.stringify(data)
   		}
-
-
 	return(dispatch) => {
 		fetch(`http://localhost:3000/adds`, configObj)
 		.then(resp => resp.json())
 		.then(add => {
 			movie.adds = [...movie.adds, add]
-			console.log(add)
 			dispatch({type:'ADD_MOVIE_TO_LIST', movie})
 		})
 	}
 }
+
+// export function deleteMovie(movie) {
+// 	return (dispatch) => {
+// 	dispatch({type:'REMOVE_MOVIE', movie})	
+// 	}
+
+// }
+
+
+
+

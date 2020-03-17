@@ -13,8 +13,8 @@ const Homepage = ()  => {
 				<Typography variant='h1' className='HomeHeader' style={{fontSize: '200px', fontWeight: '300'}}> <TheatersOutlinedIcon style={{fontSize:'150px'}} />ReelList </Typography>
 			</Grid>
 			<Grid container direction='row' justify='left' alignItems='flex-end' xs={12}>
-				<Link to="/movies"><Button variant='contained' color='primary'>Search Movies</Button></Link>
-				<Link to="/lists"><Button variant='contained' color='secondary'>View Lists</Button></Link>
+				<Link color='white' to="/movies"><Button variant='contained' color='primary'>Search Movies</Button></Link>
+				<Link color='white' to="/lists"><Button variant='contained' color='secondary'>View Lists</Button></Link>
 			</Grid>
 	    </Grid>
 

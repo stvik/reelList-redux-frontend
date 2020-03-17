@@ -22,9 +22,7 @@ class SearchPage extends Component {
 					Search Movies
 				</Typography>
 			</div>
-			<Grid container justify='space-around' className='searchPageContainer'>
-				<SearchBar />
-			</Grid>
+			<SearchBar />
 			<MoviesContainer />
 		</>
 		)

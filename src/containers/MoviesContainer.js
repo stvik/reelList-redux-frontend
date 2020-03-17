@@ -12,7 +12,7 @@ const MoviesContainer = (props) => {
 		if (props.movies.length) {
 			return props.movies.map(movie => <MovieCard movie={movie} />)			
 		} else {
-			return <div>Nothing here! </div>
+			return null
 		}
 	}
 

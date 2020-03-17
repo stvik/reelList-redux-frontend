@@ -1,3 +1,4 @@
+
 import { combineReducers } from 'redux'
 import * as action from './actions'
 
@@ -17,7 +18,10 @@ function listsReducer(state=[], action) {
 }
 
 function moviesReducer(state=[], action) {
+	console.log(action)
 	switch (action.type) {
+		case 'REMOVE_MOVIE':
+			return state.filter(movie => movie.id != action.movie.id)
 		case 'SHOW_MOVIES':
 			return action.movies
 		case 'RANDOM_MOVIE':
